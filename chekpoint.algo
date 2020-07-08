@@ -1,0 +1,72 @@
+PROCEDURE product_dat(v1,v2,:ARRAY OF INTEGER ,VAR ps:INTEGER)
+VAR
+    i : INTEGER;
+    tab: ARRAY_OF INTEGER;
+    
+BEGIN
+FOR i FROM 0 TO v1.length-1  DO
+    tab[i]:=v1[i]*v2[i]
+    ps:=ps+tab[i]
+    
+END_FOR
+    write(ps)
+END
+
+
+
+
+
+ALGORITHM vecteur_orthogonaux
+VAR
+    i,n :INTEGER;
+    v1,v2:ARRAY_OF INTEGER
+    ps : INTEGER:=0;
+BEGIN
+ Read(n)
+FOR i FROM 1 TO n  DO
+
+    Read(v1)
+    Read(v2)
+    product_dat(v1,v2,ps)
+    IF (ps=0) THEN
+        write("v1 et v2 sont orthogonaux")
+    END_IF
+END_FOR    
+
+END
+
+//function
+ FUNCTION product_dat(v1,v2,:ARRAY OF INTEGER):INTEGER
+VAR
+    i : INTEGER;
+    tab: ARRAY_OF INTEGER;
+    
+BEGIN
+FOR i FROM 0 TO v1.length-1  DO
+    tab[i]=v1[i]*v2[i]
+    ps:=ps+tab[i]
+   
+END_FOR
+ RETURN(PS)
+
+END
+
+
+
+ALGORITHM vecteur_orthogonaux
+VAR
+    i,n :INTEGER;
+    v1,v2:ARRAY_OF INTEGER
+    ps : INTEGER:=0;
+BEGIN
+ Read(n)
+FOR i FROM 0 TO n  DO
+ Read(v1)
+ Read(v2)
+ ps:=product_dat(v1,v2)
+IF (ps=0) THEN
+    write("v1 et v2 sont orthogonaux")
+END_IF
+END_FOR    
+
+END
